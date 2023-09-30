@@ -1,6 +1,6 @@
 python3 -m venv app-env
 source app-env/bin/activate
 python3 -m pip install spotipy --upgrade pip
-export SPOTIPY_CLIENT_ID=e95e9ced32e94e9aa2b3404121acca88
-export SPOTIPY_CLIENT_SECRET=5ed12a99ce9b41899380261b735309af
+export SPOTIPY_CLIENT_ID=ID HERE
+export SPOTIPY_CLIENT_SECRET=SECRET HERE
 export SPOTIPY_REDIRECT_URI=https://localhost:5000/callback
