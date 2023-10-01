@@ -23,11 +23,6 @@ body {
     /* Default text color for navbar links in light mode */
 }
 
-/* Content Section Styles */
-.content {
-    padding: 20px;
-}
-
 /* Dark mode styles */
 body.dark-mode {
     background-color: #111;
@@ -61,7 +56,7 @@ body.dark-mode .content {
 /* Adjust the switch position */
 .switch-container {
     position: absolute; /* Add this line */
-    top: 50%;
+    top: 2%;
     right: 50px; /* Move the switch 50 pixels to the left of the right edge */
     transform: translateY(-50%);
 }
@@ -111,12 +106,6 @@ input:checked+.slider:before {
     transform: translateX(20px);
 }
 
-/* Adjust the switch position */
-.switch-container {
-    top: 3.25%; /* Vertically center the switch container */
-    right: 20px; /* Adjust the right distance as needed */
-    transform: translateY(-50%); /* Correct vertical centering */
-}
 .slider-container {
     position: relative; /* Add this line */
     left: -50%; /* Move to the left by half of its width */

@@ -11,7 +11,7 @@
     <body>
         <div class="navbar">
             <a href="#">Home</a>
-            <a href="#">Lyrics</a>
+            <a href="/lyrics">Lyrics</a>
             <a href="#">Recommendation</a>
             <div class="switch-container">
                 <label class="switch">
@@ -20,11 +20,8 @@
                 </label>
             </div>
         </div>
-        <div class="content">
-            <h1>Welcome to Our Dark Mode Website</h1>
-            <p>This is a placeholder for your website content.</p>
-        </div>
         <script src="{{ url_for('static',filename='styles/darkMode.js') }}"></script>
+        {% block body %}{% endblock %}
     </body>
 
 </html>
