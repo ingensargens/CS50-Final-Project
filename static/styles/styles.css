@@ -4,24 +4,6 @@ body {
     padding: 0;
 }
 
-/* Navigation Bar Styles */
-.navbar {
-    overflow: hidden;
-    background-color: #ECECF1;
-    display: flex;
-    align-items: center;
-    /* Default background color for navbar in light mode */
-}
-
-.navbar a {
-    float: left;
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    color: #00008b;
-    /* Default text color for navbar links in light mode */
-}
 
 /* Dark mode styles */
 body.dark-mode {
@@ -53,11 +35,32 @@ body.dark-mode .content {
     top: 20px;
 }
 
+/* Navigation Bar Styles */
+.navbar {
+    overflow: hidden;
+    background-color: #ECECF1;
+    display: flex;
+    align-items: center;
+    /* Default background color for navbar in light mode */
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #00008b;
+    /* Default text color for navbar links in light mode */
+}
+
 /* Adjust the switch position */
 .switch-container {
-    position: absolute; /* Add this line */
+    position: absolute;
+    /* Add this line */
     top: 2%;
-    right: 50px; /* Move the switch 50 pixels to the left of the right edge */
+    right: 50px;
+    /* Move the switch 50 pixels to the left of the right edge */
     transform: translateY(-50%);
 }
 
@@ -107,7 +110,10 @@ input:checked+.slider:before {
 }
 
 .slider-container {
-    position: relative; /* Add this line */
-    left: -50%; /* Move to the left by half of its width */
+    position: relative;
+    /* Add this line */
+    left: -50%;
+    /* Move to the left by half of its width */
     display: inline-block;
 }
+
