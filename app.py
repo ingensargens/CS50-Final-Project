@@ -44,8 +44,9 @@ def lyrics():
         return render_template('lyricsSearch.html')
     else: #method = post
         song = request.form.get("song_query")
-        songLyrics = genius.search_song(title=song).lyrics
-        songArtist = genius.search_song(title=song).artist
+        song = genius.search_song(title=song)
+        songArtist = song.artist
+        songLyrics = song.lyrics
         songLyrics = songLyrics[songLyrics.find('['):].split('\n')
 
         filter_text = f'See {songArtist} Live'
