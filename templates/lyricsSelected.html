@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    {% for lyric in selected_lyrics %}
+        <ul>
+            <li>
+                {{lyric}}
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

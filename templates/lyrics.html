@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 
-{% block body %} 
-
-{{ lyrics }}
-
+{% block body %}
+<form method="post" action="/selected_lyrics">
+    <ul>
+        {% for lyric in lyrics %}
+            <input type="checkbox" name="selected_lyrics" value="{{ lyric }}">
+            {{ lyric }}<br>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Submit">
+</form>
 {% endblock %}

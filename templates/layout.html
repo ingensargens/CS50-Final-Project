@@ -10,9 +10,9 @@
 
     <body>
         <div class="navbar">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
             <a href="/lyrics">Lyrics</a>
-            <a href="#">Recommendation</a>
+            <a href="/">Recommendation</a>
             <div class="switch-container">
                 <label class="switch">
                     <input type="checkbox" id="toggleSwitch">
@@ -23,5 +23,4 @@
         <script src="{{ url_for('static',filename='styles/darkMode.js') }}"></script>
         {% block body %}{% endblock %}
     </body>
-
 </html>

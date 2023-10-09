@@ -5,21 +5,10 @@ from flask_session import Session
 import subprocess
 import os
 from lyricsgenius import Genius
-
+import helpers
+from helpers import setup
 
 #run setup cmds
-def setup():
-
-    # Specify the path to your commands.txt file
-    commands_file_path = "commands.txt"
-
-    # Read and process the commands from the file
-    with open(commands_file_path, "r") as file:
-        for line in file:
-            line = line.strip()
-            if line.startswith("export "):
-                key, value = line[len("export "):].split("=", 1)
-                os.environ[key] = value
 setup()
 
 #genius
@@ -56,17 +45,30 @@ def lyrics():
     else: #method = post
         song = request.form.get("song_query")
         songLyrics = genius.search_song(title=song).lyrics
-        print(songLyrics)
+        songArtist = genius.search_song(title=song).artist
+        songLyrics = songLyrics[songLyrics.find('['):].split('\n')
+
+        filter_text = f'See {songArtist} Live'
+
+        for k in songLyrics:
+            if (filter_text in k) or (k == ''):
+                songLyrics.remove(k)
+
         return render_template('lyrics.html', lyrics=songLyrics)
+
+
+@app.route('/selected_lyrics', methods=['POST'])
+def selected_lyrics():
+    selected_lyrics = request.form.getlist('selected_lyrics')
+    if len(selected_lyrics) <= 6:
+        return render_template('lyricsSelected.html', selected_lyrics=selected_lyrics)
+    else:
+        return "You can only select up to 6 lyrics. Please go back and select fewer lyrics."
+
 
 
 if __name__ == '__main__':
     app.run(debug=True, port=5010)
-
-
-
-
-
 
 
 
