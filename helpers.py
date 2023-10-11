@@ -36,3 +36,5 @@ def draw_text_on_image(text):
 
     # Close the image
     image.close()
+    # this is a compmdkasda
+    
