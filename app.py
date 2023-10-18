@@ -6,7 +6,7 @@ import subprocess
 import os
 from lyricsgenius import Genius
 import helpers
-from helpers import setup
+from helpers import setup, draw_text_on_image
 
 #run setup cmds
 setup()
@@ -61,6 +61,7 @@ def lyrics():
 @app.route('/selected_lyrics', methods=['POST'])
 def selected_lyrics():
     selected_lyrics = request.form.getlist('selected_lyrics')
+    draw_text_on_image(selected_lyrics)
     if len(selected_lyrics) <= 6:
         return render_template('lyricsSelected.html', selected_lyrics=selected_lyrics)
     else:
