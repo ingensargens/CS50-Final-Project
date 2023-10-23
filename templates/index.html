@@ -1,7 +1,27 @@
 {% extends "layout.html" %}
 
-{% block body %} 
-
-    This is a test!
+{% block body %}
+<div class="selection" name="selection-container">
+    <div class="selection2 outline" name="type-selection">
+        <form class="selection-form" action="">
+            <input type="radio" name="type" id="top-tracks" checked="checked">
+            <label class="lbl" for="top-tracks">Top Tracks</label>
+            <input type="radio" name="type" id="top-artists">
+            <label class="lbl" for="top-artists">Top Artists</label>
+            <input type="radio" name="type" id="top-genres">
+            <label for="top-genres">Top Genres</label>
+        </form>
+    </div>
+    <div class="selection2 outline" name="time-selection">
+        <form class="selection-form" action="">
+            <input type="radio" name="time" id="4-weeks" checked="checked">
+            <label class="lbl" for="4 weeks">4 Weeks</label>
+            <input type="radio" name="time" id="6-months">
+            <label class="lbl" for="6 months">6 Months</label>
+            <input type="radio" name="time" id="All-Time">
+            <label for="All-Time">All Time</label>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
