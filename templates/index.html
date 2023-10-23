@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<div class="selection" name="selection-container">
-    <div class="selection2 outline" name="type-selection">
-        <form class="selection-form" action="">
+
+<div class="selection">
+    <div class="selection2 outline">
+        <form class="selection-form"> 
             <input type="radio" name="type" id="top-tracks" checked="checked">
             <label class="lbl" for="top-tracks">Top Tracks</label>
             <input type="radio" name="type" id="top-artists">
@@ -12,8 +13,8 @@
             <label for="top-genres">Top Genres</label>
         </form>
     </div>
-    <div class="selection2 outline" name="time-selection">
-        <form class="selection-form" action="">
+    <div class="selection2 outline">
+        <form class="selection-form">
             <input type="radio" name="time" id="4-weeks" checked="checked">
             <label class="lbl" for="4 weeks">4 Weeks</label>
             <input type="radio" name="time" id="6-months">
@@ -22,6 +23,12 @@
             <label for="All-Time">All Time</label>
         </form>
     </div>
+    <form method="post" action="/">
+        <button class="selectionButton" name="submit">Generate</button>
+    </form>
 </div>
+
+
+{% block ranking %}{% endblock %}
 
 {% endblock %}

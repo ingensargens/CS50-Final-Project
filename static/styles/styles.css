@@ -170,3 +170,8 @@ input:checked+.slider:before {
     height: 100%;
     border-right: 4px solid rgb(129, 172, 238);
 }
+
+.selectionButton {
+    font-size: 16px;
+    
+}

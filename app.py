@@ -34,9 +34,15 @@ def after_request(response):
 
 
 #routes
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template('index.html')
+    if request.method == "GET":
+        return render_template('index.html')
+    else:
+        type = request.form.get("type")
+        time = request.form.get("time")
+        return render_template('indexLoaded.html', type=type, time=time)
+
 
 @app.route('/lyrics', methods=["GET", "POST"])
 def lyrics():
