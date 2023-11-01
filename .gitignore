@@ -1,5 +1,7 @@
 
 commands.txt
-/_pycache_
+__pycache__/
 /app-env
 /flask_session
+static\styles\__pycache__
+.cache
