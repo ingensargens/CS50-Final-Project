@@ -1,2 +1,5 @@
 
 commands.txt
+/_pycache_
+/app-env
+/flask_session
