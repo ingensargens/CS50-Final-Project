@@ -41,9 +41,15 @@ def index():
     else:
         type = request.form.get("type")
         time = request.form.get("time")
-        return render_template('indexLoaded.html', type=type, time=time)
-
-
+        if type is None or time is None:
+            return render_template('index.html')
+        else:
+            if type == 'top_tracks':
+                results = sp.current_user_top_tracks(time_range=time, limit=10)
+                return render_template('rankedSongs.html', results=results)
+            elif type == 'top_artists':
+                results = sp.current_user_top_artists(time_range=time, limit=10)
+                return render_template('rankedSongs.html', results=results)
 @app.route('/lyrics', methods=["GET", "POST"])
 def lyrics():
     if request.method == "GET":
@@ -77,18 +83,3 @@ def selected_lyrics():
 if __name__ == '__main__':
     app.run(debug=True, port=5010)
 
-
-
-# 4 weeks
-# results1 = sp.current_user_top_tracks(time_range='short_term', limit=5)
-# for item in results1['items']:
-#     print(item['name'])
-# 6 months
-# results2 = sp.current_user_top_tracks(time_range='medium_term', limit=5)
-# for item in results2['items']:
-#     print(item['name'])
-# all time
-# results3 = sp.current_user_top_tracks(time_range='long_term', limit=5)
-# for item in results3['items']:
-#     print(item['name'])
-# print('\n')

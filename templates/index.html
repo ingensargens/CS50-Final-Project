@@ -2,31 +2,23 @@
 
 {% block body %}
 
-<div class="selection">
-    <div class="selection2 outline">
-        <form class="selection-form"> 
-            <input type="radio" name="type" id="top-tracks" checked="checked">
-            <label class="lbl" for="top-tracks">Top Tracks</label>
-            <input type="radio" name="type" id="top-artists">
-            <label class="lbl" for="top-artists">Top Artists</label>
-            <input type="radio" name="type" id="top-genres">
-            <label for="top-genres">Top Genres</label>
-        </form>
-    </div>
-    <div class="selection2 outline">
-        <form class="selection-form">
-            <input type="radio" name="time" id="4-weeks" checked="checked">
-            <label class="lbl" for="4 weeks">4 Weeks</label>
-            <input type="radio" name="time" id="6-months">
-            <label class="lbl" for="6 months">6 Months</label>
-            <input type="radio" name="time" id="All-Time">
-            <label for="All-Time">All Time</label>
-        </form>
-    </div>
-    <form method="post" action="/">
-        <button class="selectionButton" name="submit">Generate</button>
-    </form>
-</div>
+<form  method="post" action="/">
+
+    <select name="type" id="typeMenu">
+        <option disabled selected>Type of ranking</option>
+        <option value="top_tracks">Top Tracks</option>
+        <option value="top_artists">Top Artists</option>
+    </select>
+
+    <select name="time" id="timeMenu">
+        <option disabled selected>Time Period</option>
+        <option value="short_term">4-weeks</option>
+        <option value="medium_term">6-months</option>
+        <option value="long_term">All-Time</option>
+    </select>
+    <button type='submit' id="submitButton" class="selectionButton" name="submit">Generate</button>
+
+</form>
 
 
 {% block ranking %}{% endblock %}
