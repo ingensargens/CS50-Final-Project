@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %} 
+<div class="container">
+    <div class="column">
+        Recommended Tracks based on Top Tracks
+        <ul>
+            {% for track in recommended_tracks %}
+                <li> {{ track }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="column">
+        Recommended Tracks based on Top Artists
+        <ul>
+            {% for track in recommended_by_artists %}
+                <li> {{ track }} </li>
+            {% endfor %}
+        </ul>        
+    </div>
+  </div>
+  
+{% endblock %}
