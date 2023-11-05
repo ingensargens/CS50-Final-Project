@@ -78,10 +78,10 @@ def recommend():
     recommended_tracks = sp.recommendations(seed_tracks=seed_tracks)
     recommended_by_artists = sp.recommendations(seed_artists=seed_artists)
     
-    recommended_tracks = [track['name'] for track in recommended_tracks['tracks']]
-    recommended_by_artists = [artist['name'] for artist in recommended_by_artists['tracks']]
-
-    return render_template('recommender.html', recommended_by_artists=recommended_by_artists, recommended_tracks=recommended_tracks)
+    # recommended_tracks = [track['name'] for track in recommended_tracks['tracks']]
+    # recommended_by_artists = [track['name'] for track in recommended_by_artists['tracks']]
+    print(recommended_tracks['tracks'][0]['external_urls']['spotify'])
+    return render_template('recommender.html', recommended_tracks=recommended_tracks, recommended_by_artists=recommended_by_artists)
     # sp.recommendations()
     # else: #POST
 
