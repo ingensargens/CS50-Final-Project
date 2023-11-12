@@ -13,7 +13,7 @@ setup()
 
 #genius
 genius = Genius(f'{os.environ.get("GENIUS_TOKEN")}')
-
+genius.verbose = True
 #spotify auth
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(redirect_uri='http://localhost:5010/', scope="user-top-read user-read-recently-played user-read-currently-playing user-library-read"))
 
@@ -78,6 +78,24 @@ def selected_lyrics():
     else:
         return "You can only select up to 6 lyrics. Please go back and select fewer lyrics."
 
+@app.route('/recommend', methods=['GET'])#,'POST'])
+def recommend():
+    
+    top_tracks = sp.current_user_top_tracks(time_range='long_term', limit=5)
+    top_artists = sp.current_user_top_artists(time_range='long_term', limit=5)
+
+    seed_tracks = [track['uri'] for track in top_tracks['items']]
+    seed_artists = [artist['uri'] for artist in top_artists['items']]
+
+    recommended_tracks = sp.recommendations(seed_tracks=seed_tracks)
+    recommended_by_artists = sp.recommendations(seed_artists=seed_artists)
+    
+    # recommended_tracks = [track['name'] for track in recommended_tracks['tracks']]
+    # recommended_by_artists = [track['name'] for track in recommended_by_artists['tracks']]
+    print(recommended_tracks['tracks'][0]['external_urls']['spotify'])
+    return render_template('recommender.html', recommended_tracks=recommended_tracks, recommended_by_artists=recommended_by_artists)
+    # sp.recommendations()
+    # else: #POST
 
 
 if __name__ == '__main__':
