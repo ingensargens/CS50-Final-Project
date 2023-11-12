@@ -27,7 +27,7 @@ def draw_text_on_image(list: list[str]):
     draw.multiline_text((w/2, h/2), text, align='center', fill='black', font=font, anchor='mm')
 
     # Save the modified image
-    image.save("output_image.jpg")
+    image.save("static/output_image.jpg")
 
     # Close the image
     image.close()

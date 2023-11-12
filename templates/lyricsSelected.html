@@ -9,5 +9,5 @@
         </ul>
     {% endfor %}
 
-    <img src="output_image.jpg" alt="Lyrics">
+    <img src="{{ url_for('static', filename='output_image.jpg') }}" alt="Lyrics">
 {% endblock %}
