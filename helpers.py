@@ -13,37 +13,18 @@ def setup():
                 key, value = line[len("export "):].split("=", 1)
                 os.environ[key] = value
 
-
-
-from PIL import Image, ImageDraw, ImageFont
-
-def draw_text_on_image(text):
+def draw_text_on_image(list: list[str]):
+    #accepts list of strings and turns it into str separated by \n
+    text = list_to_str(list=list)
     image = Image.open("templates/bgs/marble.jpg")
     draw = ImageDraw.Draw(image)
     w, h = image.size
+    print(w, h)
 
     # Specify the font and size
-    font = ImageFont.truetype(r'C:\Users\arjan\OneDrive\Desktop\coding\finalProject\templates\fonts\Tomatoes-O8L8.ttf', 20)
-
-    # Calculate the center of the image
-    center_x = w // 2
-    center_y = h // 2
-
-    # Calculate the total height of the text
-    total_text_height = len(text) * (font.getsize(" ")[1] + 10)
-    
-    # Calculate the starting Y position
-    position_y = center_y - (total_text_height // 2)
-
-    # Specify the text color (R, G, B)
-    text_color = (255, 255, 255)
-
-    # Add the text to the image
-    for item in text:
-        text_width, text_height = draw.textsize(item, font)
-        position_x = center_x - (text_width // 2)
-        draw.text((position_x, position_y), item, fill='black', font=font)
-        position_y += text_height + 10
+    font = ImageFont.truetype(r'templates\fonts\Tomatoes-O8L8.ttf', 20)
+        
+    draw.multiline_text((w/2, h/2), text, align='center', fill='black', font=font, anchor='mm')
 
     # Save the modified image
     image.save("output_image.jpg")
@@ -51,3 +32,9 @@ def draw_text_on_image(text):
     # Close the image
     image.close()
 
+def list_to_str(list: list[str]):
+    newStr = ''
+    for item in list:
+        newStr += item
+        newStr +='\n'
+    return newStr
