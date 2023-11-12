@@ -15,7 +15,7 @@ setup()
 genius = Genius(f'{os.environ.get("GENIUS_TOKEN")}')
 genius.verbose = True
 #spotify auth
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(redirect_uri='http://localhost:5010/', scope="user-top-read user-read-recently-played user-read-currently-playing user-library-read"))
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(redirect_uri='http://localhost:5000/', scope="user-top-read user-read-recently-played user-read-currently-playing user-library-read"))
 
 # Configure application
 app = Flask(__name__)

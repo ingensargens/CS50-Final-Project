@@ -3,4 +3,3 @@ commands.txt
 __pycache__/
 /app-env
 /flask_session
-.cache
