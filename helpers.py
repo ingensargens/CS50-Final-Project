@@ -1,5 +1,5 @@
 import os
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageColor
 def setup():
 
     # Specify the path to your commands.txt file
@@ -13,18 +13,21 @@ def setup():
                 key, value = line[len("export "):].split("=", 1)
                 os.environ[key] = value
 
-def draw_text_on_image(list: list[str]):
+def draw_text_on_image(list: list[str], color: str, size: int):
     #accepts list of strings and turns it into str separated by \n
     text = list_to_str(list=list)
     image = Image.open("templates/bgs/marble.jpg")
+
+    color = ImageColor.getrgb(color)
+
     draw = ImageDraw.Draw(image)
     w, h = image.size
     print(w, h)
 
     # Specify the font and size
-    font = ImageFont.truetype(r'templates\fonts\Tomatoes-O8L8.ttf', 20)
+    font = ImageFont.truetype(r'templates\fonts\Tomatoes-O8L8.ttf', size)
         
-    draw.multiline_text((w/2, h/2), text, align='center', fill='black', font=font, anchor='mm')
+    draw.multiline_text((w/2, h/2), text, align='center', fill=color, font=font, anchor='mm')
 
     # Save the modified image
     image.save("static/output_image.jpg")
@@ -38,3 +41,4 @@ def list_to_str(list: list[str]):
         newStr += item
         newStr +='\n'
     return newStr
+

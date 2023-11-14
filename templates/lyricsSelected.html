@@ -1,16 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-    <div class="selections">
-        <form action="/selected_lyrics" method="post">
-            <input type="color" id="colorPicker" name="colorPicker" value="#3498db">
-            <label for="colorPicker">Font Color</label>
-            <input type="range" id="fontSize" name="fontSize" min="0" max="25" value="20">
-            <input type="submit" value="Submit">
-        </form>
-
-
-
-        <img class="right-image" src="{{ url_for('static', filename='output_image.jpg') }}" alt="Lyrics">
+    <div>
+        <img class="image" src="{{ url_for('static', filename='output_image.jpg') }}" alt="Lyrics">
     </div>
 {% endblock %}

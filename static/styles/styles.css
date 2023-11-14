@@ -119,35 +119,33 @@ input:checked+.slider:before {
 
 .container {
     display: flex;
-  }
-  
-  .column {
-    flex: 1; /* This makes both columns take up equal space */
+}
+
+.column {
+    flex: 1;
+    /* This makes both columns take up equal space */
     padding: 10px;
     border: 1px solid #ccc;
-  }
-  
-  /* Add these styles to your CSS file or within a <style> tag in your HTML */
+}
+
+/* Add these styles to your CSS file or within a <style> tag in your HTML */
 .lyrics-container {
     display: flex;
     justify-content: space-between;
 }
 
-.right-image {
-    /* Adjust the width and other styles as needed */
-    width: 40%; /* Set the width of the image */
-    float: right; /* Float the image to the right side */
-    padding-right: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10%;
 }
 
 .selections {
-    padding-left: 30px;
+    padding-right: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
-    margin-bottom: 20px; /* Adjust the margin as needed */
-
+    margin-bottom: 20px;
 }
 
 #colorPicker {
@@ -159,23 +157,35 @@ input:checked+.slider:before {
     background-color: transparent;
     border: none;
     cursor: pointer;
-  }
-  #colorPicker::-webkit-color-swatch {
+}
+
+#colorPicker::-webkit-color-swatch {
     border-radius: 15px;
     border: none;
-  }
-  #colorPicker::-moz-color-swatch {
+}
+
+#colorPicker::-moz-color-swatch {
     border-radius: 15px;
     border: none;
-  }
-  
-  label {
+}
+
+label {
     font-family: "Poppins", sans-serif;
     font-size: 20px;
     cursor: pointer;
-  }
+}
 
-  #colorPicker {
+#colorPicker {
     display: block;
-    margin-bottom: 10px; /* Adjust the margin as needed */
-  }
+    margin-bottom: 10px;
+    /* Adjust the margin as needed */
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    padding: 10px;
+}

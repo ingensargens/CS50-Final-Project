@@ -1,13 +1,26 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
 <form method="post" action="/selected_lyrics">
-    <ul>
-        {% for lyric in lyrics %}
-            <input type="checkbox" name="selected_lyrics" value="{{ lyric }}">
-            {{ lyric }}<br>
-        {% endfor %}
-    </ul>
-    <input type="submit" value="Submit">
+    <div class="row">
+        <div class="column">
+            <ul>
+                {% for lyric in lyrics %}
+                    <input type="checkbox" name="selected_lyrics" value="{{ lyric }}"> {{ lyric }}<br>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="selections column">
+            <input type="color" id="colorPicker" name="colorPicker" value="#3498db">
+            <label for="colorPicker">Font Color</label><br>
+            <input type="range" id="fontSize" name="fontSize" min="0" max="25" value="20"><br>
+            <input type="submit" value="Generate">
+        </div>
+
+
+    </div>
 </form>
+
 {% endblock %}
