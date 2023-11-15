@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
 
 {% block body %} 
-
-<form action="/lyrics" method="post">
-    <input autocomplete="off" autofocus name="song_query" placeholder="SONG - ARTIST" type="text">
-    <button type="submit">Search for lyrics</button>
-</form>
-
+<div class="search-container">
+    <form action="/lyrics" method="post">
+        <input class="input-box" autocomplete="off" autofocus name="song_query" placeholder="SONG - ARTIST" type="text">
+        <button type="submit">Search for lyrics</button>
+        
+    </form>
+</div>
     
 
 {% endblock %}

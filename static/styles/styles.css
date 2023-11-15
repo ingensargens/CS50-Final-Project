@@ -126,7 +126,7 @@ input:checked+.slider:before {
     /* This makes both columns take up equal space */
     padding: 10px;
     border: 1px solid #ccc;
-}
+
 
 /* Add these styles to your CSS file or within a <style> tag in your HTML */
 .lyrics-container {
@@ -188,4 +188,27 @@ label {
 .column {
     flex: 50%;
     padding: 10px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row; /* Change the flex direction to column */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 100vh; /* Use 100vh instead of 200vh */
+    margin: 0;
+}
+
+.input-box {
+    width: 100%;
+    height: 5%;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.search-button {
+    background-color: transparent;
+    border: none;
+    /* Optional: to remove the default button border */
 }
