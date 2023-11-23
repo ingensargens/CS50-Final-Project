@@ -13,10 +13,10 @@ def setup():
                 key, value = line[len("export "):].split("=", 1)
                 os.environ[key] = value
 
-def draw_text_on_image(list: list[str], color: str, size: int):
+def draw_text_on_image(list: list[str], color: str, size: int, name: str):
     #accepts list of strings and turns it into str separated by \n
     text = list_to_str(list=list)
-    image = Image.open("templates/bgs/marble.jpg")
+    image = Image.open(f"templates/bgs/{name}.jpg")
 
     color = ImageColor.getrgb(color)
 
