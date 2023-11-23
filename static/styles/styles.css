@@ -126,7 +126,7 @@ input:checked+.slider:before {
     /* This makes both columns take up equal space */
     padding: 10px;
     border: 1px solid #ccc;
-
+}
 
 /* Add these styles to your CSS file or within a <style> tag in your HTML */
 .lyrics-container {
@@ -210,5 +210,4 @@ label {
 .search-button {
     background-color: transparent;
     border: none;
-    /* Optional: to remove the default button border */
 }
