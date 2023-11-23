@@ -142,10 +142,11 @@ input:checked+.slider:before {
 }
 
 .selections {
-    padding-right: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 20px;
+        padding-right: 30px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
+        text-align: center;
 }
 
 #colorPicker {
@@ -167,6 +168,7 @@ input:checked+.slider:before {
 #colorPicker::-moz-color-swatch {
     border-radius: 15px;
     border: none;
+    align-self: center;
 }
 
 label {
@@ -179,15 +181,6 @@ label {
     display: block;
     margin-bottom: 10px;
     /* Adjust the margin as needed */
-}
-
-.row {
-    display: flex;
-}
-
-.column {
-    flex: 50%;
-    padding: 10px;
 }
 
 .search-container {
@@ -211,3 +204,43 @@ label {
     background-color: transparent;
     border: none;
 }
+
+
+.boxes {
+  box-sizing: border-box;
+}
+
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+    padding: 10px;
+}
+
+.center-block {
+    margin: auto;
+    display: block;
+}
+
+
+
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
+
+
+
+
