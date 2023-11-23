@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block ranking %}
+
+<ol>
+    {% for artist in results %}
+        {{ artist }}
+    {% endfor %}
+</ol>
+{% endblock %}

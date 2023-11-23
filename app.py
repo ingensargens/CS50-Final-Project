@@ -34,10 +34,22 @@ def after_request(response):
 
 
 #routes
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template('index.html')
-
+    if request.method == "GET":
+        return render_template('index.html')
+    else:
+        type = request.form.get("type")
+        time = request.form.get("time")
+        if type is None or time is None:
+            return render_template('index.html')
+        else:
+            if type == 'top_tracks':
+                results = sp.current_user_top_tracks(time_range=time, limit=10)
+                return render_template('rankedSongs.html', results=results)
+            elif type == 'top_artists':
+                results = sp.current_user_top_artists(time_range=time, limit=10)
+                return render_template('rankedSongs.html', results=results)
 @app.route('/lyrics', methods=["GET", "POST"])
 def lyrics():
     if request.method == "GET":

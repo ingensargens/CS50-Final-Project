@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block ranking %}
+
+<ol>
+    {% for song in results['items'] %}
+        <li>{{ song['name'] }}</li>
+    {% endfor %}
+</ol>
+{% endblock %}
