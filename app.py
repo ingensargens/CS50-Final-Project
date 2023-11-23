@@ -65,8 +65,9 @@ def selected_lyrics():
         color = request.form.get('colorPicker')
         fntSize = int(request.form.get('fontSize'))
         name = request.form.get('bg')
+        font = request.form.get('font')
         print(name)
-        draw_text_on_image(selected_lyrics, color=color, size=fntSize, name=name)
+        draw_text_on_image(selected_lyrics, color=color, size=fntSize, img=name,font=font)
         if len(selected_lyrics) <= 6:
             return render_template('lyricsSelected.html', selected_lyrics=selected_lyrics)
         else:

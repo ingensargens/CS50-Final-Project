@@ -13,21 +13,28 @@ def setup():
                 key, value = line[len("export "):].split("=", 1)
                 os.environ[key] = value
 
-def draw_text_on_image(list: list[str], color: str, size: int, name: str):
+def draw_text_on_image(list: list[str], color: str, size: int, img: str, font: str):
     #accepts list of strings and turns it into str separated by \n
     text = list_to_str(list=list)
-    image = Image.open(f"templates/bgs/{name}.jpg")
+    image = Image.open(f"templates/bgs/{img}.jpg")
 
     color = ImageColor.getrgb(color)
 
     draw = ImageDraw.Draw(image)
     w, h = image.size
     print(w, h)
+    size = size * 2 if font == 'handwriting' else size
 
-    # Specify the font and size
-    font = ImageFont.truetype(r'templates\fonts\Tomatoes-O8L8.ttf', size)
+    paths = {
+        'handwriting':r'templates/fonts/HelloKetta-d99oX.ttf', 
+        'cursive':r'templates/fonts/Halimun-W7jn.ttf',
+        'slantedCursive':r'templates/fonts/Tomatoes-O8L8.ttf'
+    }
         
-    draw.multiline_text((w/2, h/2), text, align='center', fill=color, font=font, anchor='mm')
+    # Specify the font and size
+    fontPath = ImageFont.truetype(paths[font], size)
+        
+    draw.multiline_text((w/2, h/2), text, align='center', fill=color, font=fontPath, anchor='mm')
 
     # Save the modified image
     image.save("static/output_image.jpg")
