@@ -1,13 +1,49 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
 <form method="post" action="/selected_lyrics">
-    <ul>
-        {% for lyric in lyrics %}
-            <input type="checkbox" name="selected_lyrics" value="{{ lyric }}">
-            {{ lyric }}<br>
-        {% endfor %}
-    </ul>
-    <input type="submit" value="Submit">
+    <div class="boxes row">
+        <div class="column">
+            <ul>
+                {% for lyric in lyrics %}
+                    <input type="checkbox" name="selected_lyrics" value="{{ lyric }}"> {{ lyric }}<br>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="selections column">
+            <label for="colorPicker">Font Color</label><br>
+            <input class="center-block" type="color" id="colorPicker" name="colorPicker" value="#3498db" oninput="this.nextElementSibling.value = this.value">
+            <output></output><br><br><br>
+            <label for="fontSize">Select a font size. (May need adjustment).</label>
+            <input type="range" id="fontSize" name="fontSize" min="0" max="25" value="18"oninput="this.nextElementSibling.value = this.value">
+            <output>18</output><br><br><br>
+
+
+            <label for="bg">Select a background.</label>
+            <select name="bg" id="bg">
+                <option value="clouds">Clouds</option>
+                <option value="cloudsBlue">Clouds (Blue)</option>
+                <option value="foggyRoad">Foggy Road</option>
+                <option value="marble" selected="selected">Marble</option>
+                <option value="paperCream">Paper (Cream)</option>
+                <option value="paperOld">Paper (Old) </option>
+                <option value="paperWhite">Paper (White 1) </option>
+                <option value="paperWhite2">Paper (White 2) </option>
+                <option value="stars"> Stars </option>
+            </select><br><br><br>
+
+            <label for="font">Select a font.</label>
+            <select name="font" id="font">
+                <option value="cursive">Cursive</option>
+                <option value="slantedCursive">Slanted Cursive</option>
+                <option value="handwriting" selected="selected">Handwriting</option>
+            </select><br><br><br>
+
+            <input type="submit" value="Generate">
+        </div>
+    </div>
 </form>
+
 {% endblock %}

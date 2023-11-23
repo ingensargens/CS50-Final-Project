@@ -6,8 +6,8 @@ import subprocess
 import os
 from lyricsgenius import Genius
 import helpers
-from helpers import setup
-
+from helpers import setup, draw_text_on_image
+# to run you must pip install spotipy, flask, flask-session, subprocess, lyricsgenius, and pillow 
 #run setup cmds
 setup()
 
@@ -60,13 +60,20 @@ def lyrics():
         return render_template('lyrics.html', lyrics=songLyrics)
 
 
-@app.route('/selected_lyrics', methods=['POST'])
+@app.route('/selected_lyrics', methods=['POST', 'GET'])
 def selected_lyrics():
-    selected_lyrics = request.form.getlist('selected_lyrics')
-    if len(selected_lyrics) <= 6:
-        return render_template('lyricsSelected.html', selected_lyrics=selected_lyrics)
-    else:
-        return "You can only select up to 6 lyrics. Please go back and select fewer lyrics."
+    if request.method == "POST":
+        selected_lyrics = request.form.getlist('selected_lyrics')
+        color = request.form.get('colorPicker')
+        fntSize = int(request.form.get('fontSize'))
+        name = request.form.get('bg')
+        font = request.form.get('font')
+        print(name)
+        draw_text_on_image(selected_lyrics, color=color, size=fntSize, img=name, font=font)
+        if len(selected_lyrics) <= 6:
+            return render_template('lyricsSelected.html', selected_lyrics=selected_lyrics)
+        else:
+            return "You can only select up to 6 lyrics. Please go back and select fewer lyrics."
 
 @app.route('/recommend', methods=['GET'])#,'POST'])
 def recommend():
@@ -90,19 +97,3 @@ def recommend():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5010)
-
-
-
-# 4 weeks
-# results1 = sp.current_user_top_tracks(time_range='short_term', limit=5)
-# for item in results1['items']:
-#     print(item['name'])
-# 6 months
-# results2 = sp.current_user_top_tracks(time_range='medium_term', limit=5)
-# for item in results2['items']:
-#     print(item['name'])
-# all time
-# results3 = sp.current_user_top_tracks(time_range='long_term', limit=5)
-# for item in results3['items']:
-#     print(item['name'])
-# print('\n')

@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
-
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 {% block body %}
-    {% for lyric in selected_lyrics %}
-        <ul>
-            <li>
-                {{lyric}}
-            </li>
-        </ul>
-    {% endfor %}
+    <div>
+        <img class="image" src="{{ url_for('static', filename='output_image.jpg') }}" alt="Lyrics">
+    </div>
+    <a href="{{ url_for('static', filename='output_image.jpg') }}" download="w3logo">
+        <button class="btn"><i class="fa fa-download"></i> Download</button>
+    </a>
 {% endblock %}

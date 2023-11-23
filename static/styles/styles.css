@@ -119,11 +119,128 @@ input:checked+.slider:before {
 
 .container {
     display: flex;
-  }
-  
-  .column {
-    flex: 1; /* This makes both columns take up equal space */
+}
+
+.column {
+    flex: 1;
+    /* This makes both columns take up equal space */
     padding: 10px;
     border: 1px solid #ccc;
+}
+
+/* Add these styles to your CSS file or within a <style> tag in your HTML */
+.lyrics-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10%;
+}
+
+.selections {
+        padding-right: 30px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+}
+
+#colorPicker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#colorPicker::-webkit-color-swatch {
+    border-radius: 15px;
+    border: none;
+}
+
+#colorPicker::-moz-color-swatch {
+    border-radius: 15px;
+    border: none;
+    align-self: center;
+}
+
+label {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#colorPicker {
+    display: block;
+    margin-bottom: 10px;
+    /* Adjust the margin as needed */
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row; /* Change the flex direction to column */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 100vh; /* Use 100vh instead of 200vh */
+    margin: 0;
+}
+
+.input-box {
+    width: 100%;
+    height: 5%;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.search-button {
+    background-color: transparent;
+    border: none;
+}
+
+
+.boxes {
+  box-sizing: border-box;
+}
+
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+    padding: 10px;
+}
+
+.center-block {
+    margin: auto;
+    display: block;
+}
+
+
+
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
   }
   
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
+
+
+
+
