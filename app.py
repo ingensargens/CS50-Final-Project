@@ -16,6 +16,7 @@ genius = Genius(f'{os.environ.get("GENIUS_TOKEN")}')
 genius.verbose = True
 
 #spotify auth
+sp = None
 sp_oauth = SpotifyOAuth(client_id=os.environ.get('SPOTIPY_CLIENT_ID'), client_secret=os.environ.get('SPOTIPY_CLIENT_SECRET'),
                         redirect_uri=os.environ.get('SPOTIPY_REDIRECT_URI'), scope="user-top-read user-read-recently-played user-read-currently-playing user-library-read")
 
@@ -47,7 +48,6 @@ def auth():
 def callback():
     code = request.args.get('code')  # Get the authorization code
     token_info = sp_oauth.get_access_token(code)  # Get token info
-    print('test')
     # Redirect or display success message
     return redirect('/index') if token_info else 'Authorization failed'
 
@@ -56,6 +56,8 @@ def callback():
 @app.route('/index', methods=["GET", "POST"])
 def index():
     if request.method == "GET":
+        global sp
+        sp = spotipy.Spotify(oauth_manager=sp_oauth)
         return render_template('index.html')
     else:
         type = request.form.get("type")
