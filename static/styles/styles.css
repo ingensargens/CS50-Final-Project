@@ -301,4 +301,19 @@ label {
 
 
 
+.cntr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0;
+}
 
+.logo {
+    transform: scale(0.3); /* Scales the button to 30% */
+    margin-right: 5px; /* Adjust the margin between button and label */
+}
+.label {
+    text-align: center;
+    font-size: 20px;
+}
