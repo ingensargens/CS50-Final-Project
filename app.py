@@ -41,7 +41,7 @@ def after_request(response):
 @app.route('/')
 def auth():
     auth_url = sp_oauth.get_authorize_url()
-    return f'<a href="{auth_url}">Authorize Spotify</a>'
+    return render_template('login.html', auth_url=auth_url)
 
 
 @app.route('/callback')
