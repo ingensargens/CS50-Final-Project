@@ -6,7 +6,7 @@
         Recommended Tracks based on Top Tracks
         <ul>
             {% for track in recommended_tracks['tracks'] %}
-                <li> {{ track['name'] }} <a href="{{ track['external_urls']['spotify'] }}" target="_blank"><i class="fa-solid fa-play"></i></a> </li>
+                <li> {{ track['name'] }} <a href="{{ track['external_urls']['spotify'] }}" target="_blank"><i class="fa-solid fa-play" style="color: #04AA6D"></i></a> </li>
             {% endfor %}
         </ul>
     </div>
@@ -14,7 +14,7 @@
         Recommended Tracks based on Top Artists
         <ul>
             {% for track in recommended_by_artists['tracks'] %}
-                <li> {{ track['name'] }} <a href="{{ track['external_urls']['spotify'] }}" target="_blank"><i class="fa-solid fa-play"></i></a> </li>
+                <li> {{ track['name'] }} <a href="{{ track['external_urls']['spotify'] }}" target="_blank"><i class="fa-solid fa-play" style="color: #04AA6D"></i></a> </li>
             {% endfor %}
         </ul>        
     </div>
