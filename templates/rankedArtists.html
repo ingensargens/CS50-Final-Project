@@ -1,10 +1,15 @@
-{% extends "index.html" %}
+{% extends "layout.html" %}
 
-{% block ranking %}
+{% block body %}
 
-<ol>
-    {% for artist in results %}
-        {{ artist }}
-    {% endfor %}
-</ol>
+<div class="rankings">
+    <ol>
+        {% for artist, image in artists_with_images %}
+            <li>
+                <img src="{{ image }}" alt="{{ artist['name'] }} image" width="50" height="50">
+                {{ artist['name'] }}
+            </li>
+        {% endfor %}
+    </ol>
+</div>
 {% endblock %}

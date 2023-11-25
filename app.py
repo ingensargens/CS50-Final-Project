@@ -47,7 +47,7 @@ def auth():
 @app.route('/callback')
 def callback():
     code = request.args.get('code')  # Get the authorization code
-    token_info = sp_oauth.get_access_token(code)  # Get token info
+    token_info = sp_oauth.get_access_token(code, as_dict=False)  # Get token info
     # Redirect or display success message
     return redirect('/index') if token_info else 'Authorization failed'
 
@@ -69,8 +69,11 @@ def index():
                 results = sp.current_user_top_tracks(time_range=time, limit=10)
                 return render_template('rankedSongs.html', results=results)
             elif type == 'top_artists':
+                
                 results = sp.current_user_top_artists(time_range=time, limit=10)
-                return render_template('rankedSongs.html', results=results)
+                imgs = lambda results: [artist['images'][0]['url'] for artist in results['items']]
+                artists_with_images = zip(results['items'], imgs(results))
+                return render_template('rankedArtists.html', artists_with_images=artists_with_images)
 
 
 @app.route('/lyrics', methods=["GET", "POST"])
