@@ -4,101 +4,87 @@ body {
     padding: 0;
 }
 
-
-/* Dark mode styles */
 body.dark-mode {
     background-color: #111;
-    /* Dark background color */
     color: #fff;
-    /* Light text color */
 }
 
 body.dark-mode .navbar {
     background-color: #222;
-    /* Background color for navbar in dark mode */
 }
 
 body.dark-mode .navbar a {
     color: #fff;
-    /* Text color for navbar links in dark mode */
 }
 
 body.dark-mode .content {
     color: #fff;
-    /* Text color for content in dark mode */
 }
 
-/* Dark mode toggle button */
 .dark-mode-button {
     position: fixed;
     right: 20px;
     top: 20px;
 }
 
-/* Navigation Bar Styles */
 .navbar {
-    overflow: hidden;
+    align-items: center;
     background-color: #ECECF1;
     display: flex;
-    align-items: center;
-    /* Default background color for navbar in light mode */
+    overflow: hidden;
 }
 
 .navbar a {
-    float: left;
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
     color: #00008b;
-    /* Default text color for navbar links in light mode */
+    display: block;
+    float: left;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
 }
 
-/* Adjust the switch position */
 .switch-container {
     position: absolute;
-    /* Add this line */
-    top: 2%;
     right: 50px;
-    /* Move the switch 50 pixels to the left of the right edge */
+    top: 2%;
     transform: translateY(-50%);
 }
 
 .switch {
-    position: relative;
     display: inline-block;
-    width: 40px;
     height: 20px;
+    position: relative;
+    width: 40px;
 }
 
 .switch input {
+    height: 0;
     opacity: 0;
     width: 0;
-    height: 0;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: #ccc;
     border-radius: 20px;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
     transition: .4s;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    bottom: 2px;
     background-color: #fff;
     border-radius: 50%;
+    bottom: 2px;
+    content: "";
+    height: 16px;
+    left: 2px;
+    position: absolute;
     transition: .4s;
+    width: 16px;
 }
 
 input:checked+.slider {
@@ -110,52 +96,50 @@ input:checked+.slider:before {
 }
 
 .slider-container {
-    position: relative;
-    /* Add this line */
-    left: -50%;
-    /* Move to the left by half of its width */
     display: inline-block;
+    left: -50%;
+    position: relative;
 }
 
 .btn-outline-primary {
-    color: #0d6efd;
     border-color: #0d6efd;
+    color: #0d6efd;
 }
+
 .btn {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: 400;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 4px;
-    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    -webkit-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
     user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
 .selection {
-    display: block;
     align-items: right;
+    display: block;
     margin: auto;
-    width: 50%;
     padding: 10px;
-    
+    width: 50%;
 }
 
 .selection2 {
     margin: 10px;
-    width: 80%;
     padding: 10px;
-    
+    width: 80%;
 }
+
 .selection-form {
     align-items: center;
 }
@@ -165,28 +149,26 @@ input:checked+.slider:before {
 }
 
 .lbl {
-    padding: 12px;
-    margin: 0 10px;
-    height: 100%;
     border-right: 4px solid rgb(129, 172, 238);
+    height: 100%;
+    margin: 0 10px;
+    padding: 12px;
 }
 
 .selectionButton {
     font-size: 16px;
-    
 }
+
 .container {
     display: flex;
 }
 
 .column {
-    flex: 1;
-    /* This makes both columns take up equal space */
-    padding: 10px;
     border: 1px solid #ccc;
+    flex: 1;
+    padding: 10px;
 }
 
-/* Add these styles to your CSS file or within a <style> tag in your HTML */
 .lyrics-container {
     display: flex;
     justify-content: space-between;
@@ -200,62 +182,61 @@ input:checked+.slider:before {
 }
 
 .selections {
-        padding-right: 30px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        margin-bottom: 20px;
-        text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    text-align: center;
 }
 
 #colorPicker {
-    -webkit-appearance: none;
     -moz-appearance: none;
+    -webkit-appearance: none;
     appearance: none;
-    width: 100px;
-    height: 100px;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    height: 100px;
+    width: 100px;
 }
 
 #colorPicker::-webkit-color-swatch {
-    border-radius: 15px;
     border: none;
+    border-radius: 15px;
 }
 
 #colorPicker::-moz-color-swatch {
-    border-radius: 15px;
-    border: none;
     align-self: center;
+    border: none;
+    border-radius: 15px;
 }
 
 label {
+    cursor: pointer;
     font-family: "Poppins", sans-serif;
     font-size: 20px;
-    cursor: pointer;
 }
 
 #colorPicker {
     display: block;
     margin-bottom: 10px;
-    /* Adjust the margin as needed */
 }
 
 .search-container {
+    align-items: center;
     display: flex;
-    flex-direction: row; /* Change the flex direction to column */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    height: 100vh; /* Use 100vh instead of 200vh */
+    flex-direction: row;
+    height: 100vh;
+    justify-content: center;
     margin: 0;
 }
 
 .input-box {
-    width: 100%;
+    box-sizing: border-box;
     height: 5%;
-    padding: 10px;
     margin: 10px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 10px;
+    width: 100%;
 }
 
 .search-button {
@@ -263,109 +244,104 @@ label {
     border: none;
 }
 
-
 .boxes {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-
 
 .row {
     display: flex;
 }
-  
+
 .column {
     flex: 50%;
     padding: 10px;
 }
 
 .center-block {
-    margin: auto;
     display: block;
+    margin: auto;
 }
-
-
 
 .btn {
     background-color: DodgerBlue;
     border: none;
     color: white;
-    padding: 12px 30px;
     cursor: pointer;
     font-size: 20px;
-  }
-  
-  /* Darker background on mouse-over */
-  .btn:hover {
-    background-color: RoyalBlue;
-  }
+    padding: 12px 30px;
+}
 
+.btn:hover {
+    background-color: RoyalBlue;
+}
 
 .logo {
-    transform: scale(0.3); /* Scales the button to 30% */
-    margin-right: 5px; /* Adjust the margin between button and label */
+    margin-right: 5px;
+    transform: scale(0.3);
 }
+
 .label {
-    text-align: center;
     font-size: 20px;
+    text-align: center;
 }
 
 .cntr {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    height: 75vh; /* Ensure full viewport height */
+    display: flex;
+    height: 75vh;
+    justify-content: center;
     margin: 0;
 }
 
 .indexForm {
     display: flex;
     flex-direction: column;
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
+
     transform: translate(-50%, -50%)
-    
 }
 
-.indexForm select, button, option{
-    margin: 20px 0; /* Add margin to the top and bottom of select menus and button */
-    border-radius: 8px;
+.indexForm select,
+button,
+option {
     background-color: #04AA6D;
+    border-radius: 8px;
     color: #fff;
+    margin: 20px 0;
     transform: scale(1.75);
 }
 
 .rankings {
-
-    margin: 0 auto;
-    width: fit-content; /* Optional: Adjust width as needed */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    left: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
     transform: scale(1.75);
-
+    width: fit-content;
 }
 
 .coloredInput {
-    margin: 20px 0; /* Add margin to the top and bottom of select menus and button */
-    border-radius: 8px;
     background-color: #04AA6D;
+    border-radius: 8px;
     color: #fff;
+    margin: 20px 0;
     transform: scale(1.75);
 }
 
-#lyricsSearch::placeholder{
-    color: #fff; /* Change the color to white */
+#lyricsSearch::placeholder {
+    color: #fff;
 }
 
 .genButton {
-    margin: 20px 0; /* Add margin to the top and bottom of select menus and button */
-    border-radius: 8px;
     background-color: #04AA6D;
+    border-radius: 8px;
     color: #fff;
+    margin: 20px 0;
     transform: scale(1.75);
 }

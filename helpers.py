@@ -1,5 +1,6 @@
 import os
 from PIL import Image, ImageDraw, ImageFont, ImageColor
+
 def setup():
 
     # Specify the path to your commands.txt file
@@ -22,7 +23,6 @@ def draw_text_on_image(list: list[str], color: str, size: int, img: str, font: s
 
     draw = ImageDraw.Draw(image)
     w, h = image.size
-    print(w, h)
     size = size * 2 if font == 'handwriting' else size
 
     paths = {
