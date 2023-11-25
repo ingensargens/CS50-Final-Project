@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %} 
+
+
+<div class="cntr">
+    <div>
+        <a name="auth" href="{{ auth_url }}">
+            <img class="logo" src="{{ url_for('static',filename='spotify.png') }}" alt="Spotify Image"> 
+        </a>
+    </div>
+    <div class="label">Click to log in with Spotify!</div>
+</div>
+    
+{% endblock %}

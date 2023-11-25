@@ -1,7 +1,26 @@
 {% extends "layout.html" %}
 
-{% block body %} 
+{% block body %}
 
-    This is a test!
+<form  method="post" action="/index">
+
+    <select name="type" id="typeMenu">
+        <option disabled selected>Type of ranking</option>
+        <option value="top_tracks">Top Tracks</option>
+        <option value="top_artists">Top Artists</option>
+    </select>
+
+    <select name="time" id="timeMenu">
+        <option disabled selected>Time Period</option>
+        <option value="short_term">4-weeks</option>
+        <option value="medium_term">6-months</option>
+        <option value="long_term">All-Time</option>
+    </select>
+    <button type='submit' id="submitButton" class="selectionButton" name="submit">Generate</button>
+
+</form>
+
+
+{% block ranking %}{% endblock %}
 
 {% endblock %}

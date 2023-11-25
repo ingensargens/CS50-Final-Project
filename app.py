@@ -14,9 +14,13 @@ setup()
 #genius
 genius = Genius(f'{os.environ.get("GENIUS_TOKEN")}')
 genius.verbose = True
-#spotify auth
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(redirect_uri='http://localhost:5000/', scope="user-top-read user-read-recently-played user-read-currently-playing user-library-read"))
 
+#spotify auth
+sp = None
+sp_oauth = SpotifyOAuth(client_id=os.environ.get('SPOTIPY_CLIENT_ID'), client_secret=os.environ.get('SPOTIPY_CLIENT_SECRET'),
+                        redirect_uri=os.environ.get('SPOTIPY_REDIRECT_URI'), scope="user-top-read user-read-recently-played user-read-currently-playing user-library-read")
+
+print(os.environ.get('SPOTIPY_REDIRECT_URI'))
 # Configure application
 app = Flask(__name__)
 
@@ -35,8 +39,39 @@ def after_request(response):
 
 #routes
 @app.route('/')
+def auth():
+    auth_url = sp_oauth.get_authorize_url()
+    return render_template('login.html', auth_url=auth_url)
+
+
+@app.route('/callback')
+def callback():
+    code = request.args.get('code')  # Get the authorization code
+    token_info = sp_oauth.get_access_token(code)  # Get token info
+    # Redirect or display success message
+    return redirect('/index') if token_info else 'Authorization failed'
+
+
+#routes
+@app.route('/index', methods=["GET", "POST"])
 def index():
-    return render_template('index.html')
+    if request.method == "GET":
+        global sp
+        sp = spotipy.Spotify(oauth_manager=sp_oauth)
+        return render_template('index.html')
+    else:
+        type = request.form.get("type")
+        time = request.form.get("time")
+        if type is None or time is None:
+            return render_template('index.html')
+        else:
+            if type == 'top_tracks':
+                results = sp.current_user_top_tracks(time_range=time, limit=10)
+                return render_template('rankedSongs.html', results=results)
+            elif type == 'top_artists':
+                results = sp.current_user_top_artists(time_range=time, limit=10)
+                return render_template('rankedSongs.html', results=results)
+
 
 @app.route('/lyrics', methods=["GET", "POST"])
 def lyrics():
@@ -96,4 +131,4 @@ def recommend():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5010)
+    app.run(debug=True, port=5000)
