@@ -6,7 +6,7 @@
     <div>
         <img class="image" src="{{ url_for('static', filename='output_image.jpg') }}" alt="Lyrics">
     </div>
-    <a href="{{ url_for('static', filename='output_image.jpg') }}" download="output_image">
+    <a style="padding-left: 120px;" href="{{ url_for('static', filename='output_image.jpg') }}" download="output_image">
         <button class="btn"><i class="fa fa-download"></i> Download</button>
     </a>
 {% endblock %}
