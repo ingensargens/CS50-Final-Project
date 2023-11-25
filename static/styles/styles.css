@@ -337,15 +337,35 @@ label {
 
 .rankings {
 
-        margin: 0 auto;
-        width: fit-content; /* Optional: Adjust width as needed */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: scale(1.75);
+    margin: 0 auto;
+    width: fit-content; /* Optional: Adjust width as needed */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.75);
 
+}
+
+.coloredInput {
+    margin: 20px 0; /* Add margin to the top and bottom of select menus and button */
+    border-radius: 8px;
+    background-color: #04AA6D;
+    color: #fff;
+    transform: scale(1.75);
+}
+
+#lyricsSearch::placeholder{
+    color: #fff; /* Change the color to white */
+}
+
+.genButton {
+    margin: 20px 0; /* Add margin to the top and bottom of select menus and button */
+    border-radius: 8px;
+    background-color: #04AA6D;
+    color: #fff;
+    transform: scale(1.75);
 }
