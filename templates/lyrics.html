@@ -5,9 +5,11 @@
 <form method="post" action="/selected_lyrics">
     <div class="boxes row">
         <div class="column">
-            <ul>
+            <ul >
                 {% for lyric in lyrics %}
-                    <input type="checkbox" name="selected_lyrics" value="{{ lyric }}"> {{ lyric }}<br>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="selected_lyrics" value="{{ lyric }}"> {{ lyric }}<br>
+                    </label>                
                 {% endfor %}
             </ul>
         </div>

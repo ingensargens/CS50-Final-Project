@@ -1,0 +1,12 @@
+python3 -m venv app-env
+cd app-env/Scripts/activate.ps1
+python3 -m pip install spotipy --upgrade pip
+pip install pillow
+pip install flask
+pip install flask-session
+pip install lyricsgenius
+export SPOTIPY_CLIENT_ID=CLIENT_ID_HERE
+export SPOTIPY_CLIENT_SECRET=CLIENT_SECRET_HERE
+export SPOTIPY_REDIRECT_URI=http://127.0.0.1:5000/callback
+export GENIUS_TOKEN='GENIUS_TOKEN_HERE'
+ 

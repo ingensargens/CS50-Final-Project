@@ -345,3 +345,37 @@ option {
     margin: 20px 0;
     transform: scale(1.75);
 }
+
+/* Style for unchecked checkboxes */
+.custom-checkbox input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #04AA6D;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    background-color: #04AA6D; /* Background color for unchecked checkboxes */
+}
+
+/* Style for checked checkboxes */
+.custom-checkbox input[type="checkbox"]:checked {
+    background-color: #145c42; /* Background color for checked checkboxes */
+}
+
+/* Hide the checkmark by default */
+.custom-checkbox input[type="checkbox"]::before {
+    content: '';
+    display: none;
+}
+
+/* Show the checkmark when checkbox is checked */
+.custom-checkbox input[type="checkbox"]:checked::before {
+    content: '\2714'; /* Unicode checkmark character */
+    display: block;
+    text-align: center;
+    line-height: 20px; /* Adjust to vertically center the checkmark */
+    color: white; /* Color of the checkmark */
+}
