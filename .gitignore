@@ -4,3 +4,4 @@ __pycache__/
 /app-env
 /flask_session
 templates\output_image.jpg
+.obsidian
