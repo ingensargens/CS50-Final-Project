@@ -20,7 +20,6 @@ sp = None
 sp_oauth = SpotifyOAuth(client_id=os.environ.get('SPOTIPY_CLIENT_ID'), client_secret=os.environ.get('SPOTIPY_CLIENT_SECRET'),
                         redirect_uri=os.environ.get('SPOTIPY_REDIRECT_URI'), scope="user-top-read user-read-recently-played user-read-currently-playing user-library-read")
 
-print(os.environ.get('SPOTIPY_REDIRECT_URI'))
 # Configure application
 app = Flask(__name__)
 
@@ -106,7 +105,6 @@ def selected_lyrics():
         fntSize = int(request.form.get('fontSize'))
         name = request.form.get('bg')
         font = request.form.get('font')
-        print(name)
         draw_text_on_image(selected_lyrics, color=color, size=fntSize, img=name, font=font)
         if len(selected_lyrics) <= 6:
             return render_template('lyricsSelected.html', selected_lyrics=selected_lyrics)
@@ -127,7 +125,6 @@ def recommend():
     
     # recommended_tracks = [track['name'] for track in recommended_tracks['tracks']]
     # recommended_by_artists = [track['name'] for track in recommended_by_artists['tracks']]
-    print(recommended_tracks['tracks'][0]['external_urls']['spotify'])
     return render_template('recommender.html', recommended_tracks=recommended_tracks, recommended_by_artists=recommended_by_artists)
     # sp.recommendations()
     # else: #POST
