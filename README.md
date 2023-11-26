@@ -8,7 +8,7 @@ An explanation and demonstration video can be found here: #TODO
 
 When you first run the application, you'll be greeted by a green Spotify logo. Click this Spotify logo to allow (grant permission for) my application to access your Spotify data. Not authenticating or clicking any of the navbar buttons will not allow my program to access any of your data and will cause an error.
 
-###NOTE: Running this without a spotify client id or client secret will not work.
+### NOTE: Running this without a spotify client id or client secret will not work.
 
 ## Top songs and artists 
 
