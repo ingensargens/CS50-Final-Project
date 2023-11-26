@@ -2,7 +2,7 @@
 ## Overview
 My final project is a flask **Spotify-data inspired** [final project](https://cs50.harvard.edu/x/2023/project/#getting-started) project for [CS50 - Harvard's Introduction to Computer Science Course](https://cs50.harvard.edu/x/2023/). My flask webpage incorporates 3 main features: a homepage which displays a user's top songs and top artists, song recommendations based on a user's top songs and top artists, and a lyrics search engine which can display lyrics on an image (mostly for aesthetic purposes).
 
-An explanation and demonstration video can be found here: #TODO
+An explanation and demonstration video can be found [here](https://youtu.be/Q-Gbthrm2bg).
 
 ## Spotify Authentication
 
