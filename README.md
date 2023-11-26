@@ -7,6 +7,9 @@ An explanation and demonstration video can be found here: #TODO
 ## Spotify Authentication
 
 When you first run the application, you'll be greeted by a green Spotify logo. Click this Spotify logo to allow (grant permission for) my application to access your Spotify data. Not authenticating or clicking any of the navbar buttons will not allow my program to access any of your data and will cause an error.
+
+###NOTE: Running this without a spotify client id or client secret will not work.
+
 ## Top songs and artists 
 
 The first feature of my application is rankings of your top songs and top artists. This feature is under the `home` tab of the app. Select a type of ranking (either song or artist) and a time period (4 weeks, 6 months, or all time) and then click generate. A ranking will be displayed based on your selections. This can be refreshed or gone back to by clicking home in the navbar.

@@ -81,7 +81,7 @@ def lyrics():
         return render_template('lyricsSearch.html')
     else: #method = post
         song = request.form.get("song_query")
-        if song is None: 
+        if song is None or song == '': 
             return render_template('lyricsSearch.html')
         song = genius.search_song(title=song)
         songArtist = song.artist
